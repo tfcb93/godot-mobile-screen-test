@@ -1,1 +1,0 @@
-apksigner sign --ks /home/tfcb93/Android/debug.keystore /home/tfcb93/Documents/repos/games/mobile_screen_test/Build/mobile_screen_test.apk
