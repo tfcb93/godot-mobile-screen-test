@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://csdvec0pom8m3"]
+
+[ext_resource type="Script" path="res://Scripts/old_main.gd" id="1_opca0"]
+[ext_resource type="PackedScene" uid="uid://h4pjt4uhgo1a" path="res://Scenes/drag_particle.tscn" id="2_amovy"]
+[ext_resource type="Texture2D" uid="uid://ci87sge6s8qlr" path="res://Resources/Images/drag.png" id="3_7lr6m"]
+[ext_resource type="AudioStream" uid="uid://dquqkqi6caio4" path="res://Resources/Music/fun-drums.mp3" id="4_fpo1x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_18phr"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_stkkc"]
+font_size = 64
+
+[node name="Main" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_opca0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Tap Display Timer" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = 96.0
+offset_right = 81.0
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "00:00:000"
+label_settings = SubResource("LabelSettings_18phr")
+
+[node name="Drag Particle" parent="." instance=ExtResource("2_amovy")]
+visible = false
+
+[node name="Drag_Sprite" type="Sprite2D" parent="."]
+modulate = Color(0, 0.772549, 0.772549, 1)
+position = Vector2(72, 22)
+texture = ExtResource("3_7lr6m")
+
+[node name="tap_song" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_fpo1x")
+
+[node name="Test Text" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 47.0
+offset_top = 762.0
+offset_right = 652.0
+offset_bottom = 850.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.637045
+label_settings = SubResource("LabelSettings_stkkc")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Tap Counter" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0"
+
+[node name="Inbetween Tap Timer" type="Timer" parent="."]

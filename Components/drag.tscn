@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgw15jfx5c1ph"]
+
+[ext_resource type="Script" path="res://Scripts/Components/drag.gd" id="1_n21hr"]
+
+[node name="Drag" type="Node2D"]
+script = ExtResource("1_n21hr")

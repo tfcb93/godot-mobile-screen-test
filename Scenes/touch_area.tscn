@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://v3dav0a51ysj"]
+
+[ext_resource type="Script" path="res://Scripts/touch_area.gd" id="1_mwyoi"]
+[ext_resource type="Texture2D" uid="uid://dkafguq1ahuro" path="res://icon.svg" id="2_ctsv5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxjo3"]
+size = Vector2(100, 100)
+
+[node name="Touch Area" type="Area2D"]
+script = ExtResource("1_mwyoi")
+reduced_height_percentage = 50
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_ctsv5")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vxjo3")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://cp3f3yvp5m5a2"]
+
+[ext_resource type="Texture2D" uid="uid://f8dk8pau11as" path="res://Resources/Images/untap.png" id="1_n31gk"]
+[ext_resource type="Script" path="res://Scripts/tap_particle.gd" id="2_yes6s"]
+
+[sub_resource type="Curve" id="Curve_ftwaa"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_b3hp5"]
+curve = SubResource("Curve_ftwaa")
+
+[sub_resource type="Gradient" id="Gradient_f7mqt"]
+colors = PackedColorArray(0.930865, 0.731159, 0.781797, 1, 0, 0.811765, 0.67451, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_54bh1"]
+gradient = SubResource("Gradient_f7mqt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hlhwt"]
+particle_flag_disable_z = true
+angle_min = -25.0
+angle_max = 25.0
+gravity = Vector3(0, 98, 0)
+color_initial_ramp = SubResource("GradientTexture1D_54bh1")
+alpha_curve = SubResource("CurveTexture_b3hp5")
+sub_emitter_mode = 1
+sub_emitter_frequency = 51.36
+
+[node name="Untap Particle" type="GPUParticles2D"]
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_hlhwt")
+texture = ExtResource("1_n31gk")
+one_shot = true
+script = ExtResource("2_yes6s")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

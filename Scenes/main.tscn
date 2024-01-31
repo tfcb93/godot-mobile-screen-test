@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://ci8wuligrkgi5"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_e84my"]
+[ext_resource type="PackedScene" uid="uid://v3dav0a51ysj" path="res://Scenes/touch_area.tscn" id="1_jv6xm"]
+[ext_resource type="PackedScene" uid="uid://44jkl6af3onc" path="res://Components/tap.tscn" id="2_sddo2"]
+[ext_resource type="PackedScene" uid="uid://xhy33crbk73v" path="res://Components/untap.tscn" id="3_051ni"]
+[ext_resource type="PackedScene" uid="uid://cgw15jfx5c1ph" path="res://Components/drag.tscn" id="5_7xai1"]
+[ext_resource type="PackedScene" uid="uid://cowy2ye4twqox" path="res://Scenes/ui.tscn" id="6_1l0oc"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_e84my")
+
+[node name="Touch Area" parent="." node_paths=PackedStringArray("tap_function", "untap_function", "drag_function") instance=ExtResource("1_jv6xm")]
+tap_function = NodePath("../Tap")
+untap_function = NodePath("../Untap")
+drag_function = NodePath("../Drag")
+
+[node name="Tap" parent="." instance=ExtResource("2_sddo2")]
+
+[node name="Untap" parent="." instance=ExtResource("3_051ni")]
+
+[node name="Drag" parent="." instance=ExtResource("5_7xai1")]
+
+[node name="UI Canvas" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="UI Canvas" instance=ExtResource("6_1l0oc")]

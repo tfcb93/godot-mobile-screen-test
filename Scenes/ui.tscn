@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://cowy2ye4twqox"]
+
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_tg1xq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dtmpt"]
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_cmd40"]
+font_size = 64
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_tg1xq")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 131.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Taps" type="VBoxContainer" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Taps label" type="Label" parent="HBoxContainer/HBoxContainer/Taps"]
+layout_mode = 2
+text = "Tap counter"
+label_settings = SubResource("LabelSettings_dtmpt")
+horizontal_alignment = 1
+
+[node name="Taps Counter" type="Label" parent="HBoxContainer/HBoxContainer/Taps"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_cmd40")
+horizontal_alignment = 1
+
+[node name="Top Combo" type="VBoxContainer" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Top Combo label" type="Label" parent="HBoxContainer/HBoxContainer/Top Combo"]
+layout_mode = 2
+text = "Highest Combo"
+label_settings = SubResource("LabelSettings_dtmpt")
+horizontal_alignment = 1
+
+[node name="Top Combo Counter" type="Label" parent="HBoxContainer/HBoxContainer/Top Combo"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_cmd40")
+horizontal_alignment = 1
+
+[node name="Combo" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Combo label" type="Label" parent="HBoxContainer/Combo"]
+layout_mode = 2
+text = "Combo counter"
+label_settings = SubResource("LabelSettings_dtmpt")
+horizontal_alignment = 1
+
+[node name="Combo Counter" type="Label" parent="HBoxContainer/Combo"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_cmd40")
+horizontal_alignment = 1

@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://h4pjt4uhgo1a"]
+
+[ext_resource type="Texture2D" uid="uid://bnacgn5dp0ogn" path="res://Resources/Images/circle.png" id="1_4s4bm"]
+[ext_resource type="Script" path="res://Scripts/drag_particle.gd" id="2_wuy8f"]
+
+[sub_resource type="Curve" id="Curve_ftwaa"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_b3hp5"]
+curve = SubResource("Curve_ftwaa")
+
+[sub_resource type="Curve" id="Curve_pjh4c"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_o1ehi"]
+curve = SubResource("Curve_pjh4c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gpfc4"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_o1ehi")
+alpha_curve = SubResource("CurveTexture_b3hp5")
+
+[node name="Drag Particle" type="GPUParticles2D"]
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_gpfc4")
+texture = ExtResource("1_4s4bm")
+lifetime = 2.0
+one_shot = true
+script = ExtResource("2_wuy8f")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

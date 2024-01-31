@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpx1fw8e5kdn"]
+
+[ext_resource type="Texture2D" uid="uid://bn6djatg64mpp" path="res://Resources/Images/star.png" id="1_likwg"]
+
+[sub_resource type="Curve" id="Curve_412ej"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mnpoo"]
+curve = SubResource("Curve_412ej")
+
+[sub_resource type="Curve" id="Curve_bjxu4"]
+_data = [Vector2(0.593333, 0), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_qrjva"]
+min_value = 0.05
+_data = [Vector2(0, 0.527472), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_rf081"]
+curve_x = SubResource("Curve_bjxu4")
+curve_y = SubResource("Curve_qrjva")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tno1p"]
+particle_flag_disable_z = true
+angle_min = 90.0
+angle_max = 180.0
+angular_velocity_min = 100.0
+angular_velocity_max = 300.0
+directional_velocity_min = -200.0
+directional_velocity_max = 0.0
+directional_velocity_curve = SubResource("CurveXYZTexture_rf081")
+radial_velocity_min = 50.0
+radial_velocity_max = 100.0
+gravity = Vector3(0, 98, 0)
+alpha_curve = SubResource("CurveTexture_mnpoo")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="Star Burst" type="GPUParticles2D"]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_tno1p")
+texture = ExtResource("1_likwg")
+one_shot = true
+explosiveness = 1.0
